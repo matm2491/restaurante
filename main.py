@@ -39,7 +39,8 @@ menu = [
 ]
 
 #de aqui para arriba esta el menu ------------------------------------
-
+orden = []
+#para las ordenes
 def create_food(food):
     if food not in menu:
         menu.append(food)
@@ -62,6 +63,23 @@ def food_list():
     for idx, keys in enumerate(menu):
         print('{uid} | {type} | {name} |{price}'.format(uid = idx, type = keys['food_type'],
             name = keys['food_name'], price = keys['sale_price']))
+
+
+def orden_food(index):
+    index = menu[index]
+    if index in menu:
+        orden.append(index)
+        print(orden)
+    
+
+def total_price():
+    for carta in orden:
+        for valor in carta.values():
+            total = '{price}'.format(price = valor['sale_price'])
+                
+            print(total)
+            
+
 
 
 #ayudas para no repetir codigo 
@@ -95,12 +113,12 @@ def main():
 
 if __name__=='__main__':
     main()
+
     commands = input("que quieres hacer? ")
     commands = commands.capitalize()
     
     print("*" * 50)
     if commands == "L":
-        print(menu[1])
         food_list()
     
     elif commands == "A":
@@ -112,6 +130,7 @@ if __name__=='__main__':
         print("*" * 50)
         create_food(food)
         food_list()
+        main()
 
     elif commands == "M":
          
@@ -137,12 +156,19 @@ if __name__=='__main__':
         food_list()
     
     elif commands == "O":
-        print("*" * 50)
         food_list()
         print("*" * 50)
-        print(int(input("que deseas ordenar: ")))
-
-        
+        index = (int(input("que deseas ordenar: ")))
+        orden_food(index)
+        other_index = "si"
+        while other_index == "si":
+            other_index = input("deseas algo mas? ")
+            if other_index == "si":
+                index = (int(input("que deseas? ")))
+                orden_food(index)
+            else:
+                break
+        total_price()
 
 
 

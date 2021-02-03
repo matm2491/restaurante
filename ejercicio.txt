@@ -11,5 +11,7 @@ plato de la carta.
 
 c. Cuando se realiza un pedido se introducirán los platos 
 requeridos y al final se mostrará por pantalla el precio 
-total.d. Cuando se cierra el restaurante el programa mostrará 
+total.
+
+d. Cuando se cierra el restaurante el programa mostrará 
 por pantalla el dinero total ganado.
