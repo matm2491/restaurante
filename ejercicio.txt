@@ -1,0 +1,15 @@
+57. Escriba un programa en Ruby que gestione un 
+restaurante. Para ello se seguirán las
+siguientes instrucciones:
+
+a. El restaurante dispone de una carta de 6 platillos,
+ de los cuales debemos saber el nombre, el precio de venta y 
+ el tipo de comida que es (aperitivo, carne,pescado, postre).
+
+b. Se debe poder añadir, modificar o eliminar cualquier 
+plato de la carta.
+
+c. Cuando se realiza un pedido se introducirán los platos 
+requeridos y al final se mostrará por pantalla el precio 
+total.d. Cuando se cierra el restaurante el programa mostrará 
+por pantalla el dinero total ganado.
