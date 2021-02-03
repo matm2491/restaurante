@@ -75,8 +75,8 @@ def orden_food(index):
 def total_price():
     for i in orden:
         for value in i.values():
-
-            # no se que mierda hacer aqui 
+            print(value)
+            
 
         
 
