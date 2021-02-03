@@ -76,6 +76,9 @@ def total_price():
     for i in orden:
         for value in i.values():
             print(value)
+
+            #no se que mierda hacer aqui el print solo es que queria ver que me 
+            #devolviera los valores que necesitaba
             
 
         
