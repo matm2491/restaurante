@@ -73,11 +73,14 @@ def orden_food(index):
     
 
 def total_price():
-    for carta in orden:
-        for valor in carta.values():
-            total = '{price}'.format(price = valor['sale_price'])
-                
-            print(total)
+    for i in orden:
+        for value in i.values():
+
+            # no se que mierda hacer aqui 
+
+        
+
+            
             
 
 
