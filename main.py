@@ -1,3 +1,6 @@
+#variable para cerrar y dar monto total
+close_total_restaurant = 0
+
 menu = [
      {
         'food_type' : 'pescado',
@@ -39,7 +42,14 @@ menu = [
 ]
 
 #de aqui para arriba esta el menu ------------------------------------
+
+
 orden = []
+
+#aqui va toda la venta del dia
+
+sale_sale = []
+
 #para las ordenes
 def create_food(food):
     if food not in menu:
@@ -68,22 +78,47 @@ def food_list():
 def orden_food(index):
     index = menu[index]
     if index in menu:
-        orden.append(index)
-        print(orden)
-    
+        orden.append(index)           
+       
 
 def total_price():
-    for i in orden:
-        for value in i.values():
-            print(value)
+    global close_total_restaurant
+    suma = 0
+    total = 0
+    for plato in orden:
+        plato = plato['sale_price']
+        suma = plato
+        total = suma + total
+    charge_total(total)
+        
+    new_client = input("hay un nuevo cliente? ")
+    if new_client == "si":
+        play()
+    else:
+        bye(close_total_restaurant)
+        
+
+
+def charge_total(total):
+    print("su consumo y deuda a pagar es de {}$ Dolares".format(total)) 
+    close_restaurant(total)
+    
+            
+
+def close_restaurant(total):
+    global close_total_restaurant
+    close = total
+    contador = close
+    close_total_restaurant = contador + close
+
+def bye(close_total_restaurant):
+    print("hemos llegado al fianl del dia")
+    
+    print("la ganancia total del restaurante el dia de hoy fue {} Dolares".format(close_total_restaurant))
+
 
             #no se que mierda hacer aqui el print solo es que queria ver que me 
             #devolviera los valores que necesitaba
-            
-
-        
-
-            
             
 
 
@@ -113,20 +148,20 @@ def main():
     
     
     """)
+    play()
 
 
 
 
-if __name__=='__main__':
-    main()
 
+def play():
     commands = input("que quieres hacer? ")
     commands = commands.capitalize()
-    
     print("*" * 50)
     if commands == "L":
         food_list()
-    
+
+        
     elif commands == "A":
         food = {
         'food_type': _get_food_field(''),
@@ -136,7 +171,8 @@ if __name__=='__main__':
         print("*" * 50)
         create_food(food)
         food_list()
-        main()
+        
+        
 
     elif commands == "M":
          
@@ -164,6 +200,7 @@ if __name__=='__main__':
     elif commands == "O":
         food_list()
         print("*" * 50)
+        print("por favor indica por medio de los indices a la izquierda")
         index = (int(input("que deseas ordenar: ")))
         orden_food(index)
         other_index = "si"
@@ -173,9 +210,17 @@ if __name__=='__main__':
                 index = (int(input("que deseas? ")))
                 orden_food(index)
             else:
-                break
+                print("gracias por su consumo ya le damos el monto total")
         total_price()
 
+    else:
+        print("lo siento comando incorrecto intente de nuevo")
+        while not commands:
+            commands = input("que quieres hacer? ")
+            commands = commands.capitalize()
 
 
 
+
+if __name__=='__main__':
+    main()
